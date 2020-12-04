@@ -1,0 +1,50 @@
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Ice Cream Flavors</title>
+  <script
+    src="https://code.jquery.com/jquery-3.3.1.min.js"
+    integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+    crossorigin="anonymous"></script>
+  <script defer>
+    window.iceCreamFlavors = [
+      'vanilla',
+      'chocolate',
+      'Cherry Garcia',
+      'Neopolitan',
+      'French vanilla',
+      'bubble gum',
+      'butter pecan'
+    ];
+
+    function check(val) {
+      const change = document.getElementById('solutions')
+      if (change === null) {
+        const script = document.createElement("script");  
+        script.src = `solutions/${val}.js`
+        script.setAttribute('id', 'solutions')
+        document.body.appendChild(script);
+      } else {
+        change.remove()
+        location.reload()
+      }
+
+      const script = document.createElement("script");  
+      script.src = `solutions/${val}.js`
+      script.setAttribute('id', 'solutions')
+      document.body.appendChild(script);
+      }
+   
+  
+  </script>
+</head>
+<body>
+  <h2>Welcome to the Ice Cream Challenge</h2>
+  <input type='button' id='check' class='check' onclick="check('solution1')" value='Solution 1' />
+  <input type='button' id='check' class='check' onclick="check('solution2')" value='Solution 2' />
+  <input type='button' id='check' class='check' onclick="check('solution3')" value='Solution 3' />
+  <h1 value='window.current'></h1>
+  <ul class="ice-cream-list">
+  </ul>
+</body>
+</html>
